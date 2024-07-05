@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Articles</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <ul>
+        {% for article in articles %}
+            <li>{{ article.id }} - {{ article.title }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Article</h2>
+    <form method="post" action="/">
+        <input type="text" name="title" placeholder="Enter article title" required><br>
+        <button type="submit">Submit</button><br>
+    </form>
+
+    <h2>Delete Article by id</h2>
+    <form method="post" action="/delete">
+        <input type="number" name="id" placeholder="Enter article id" required><br>
+        <button type="submit">Delete</button><br>
+    </form>
+
+    <h2> update article </h2>
+    <form method="post" action="/update">
+        <input type="number" name="id" placeholder="enter article id" required><br>
+        <input type="text" name="title" placeholder="Enter new article title" required><br>
+        <button type="submit"> update</button><br>
+    </form>
+</body>
+</html>
